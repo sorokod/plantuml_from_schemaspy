@@ -3,14 +3,14 @@ package soroko.gesrep
 import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
- * Unfortunately we need to rebuild the in-memory model Schemaspy serialized to XML.
+ * Unfortunately we need to rebuild the in-memory model that Schemaspy serialized to XML.
  * We use only the bits that interest us.
  */
 
 data class Database(
     val name: String,
     val type: String,
-    val sequences: Sequences,
+    val sequences: Sequences?,
     val tables: Tables
 )
 

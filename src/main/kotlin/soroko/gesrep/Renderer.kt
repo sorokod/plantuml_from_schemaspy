@@ -2,7 +2,6 @@ package soroko.gesrep
 
 class Renderer() {
 
-
     /**
      * Wraps data with PlantUML boilerplate
      */
@@ -12,12 +11,10 @@ class Renderer() {
     ' uncomment the line below for retina display
     'skinparam dpi 300
     !define Table(name) class name << (T,#FFAAAA) >>
-    ' we use bold for primary key
-    ' green color for unique
-    ' and underscore for not_null
+    ' ##################################
     !define pk(x) <b>《x》</b>
     !define unique(x) <color:green>x</color>
-    !define nullable(x) ∅ x
+    !define nullable(x) x ∅ 
     !define fk(x, y, z) x➜y.z
     ' other tags available:
     ' <i></i>
@@ -29,7 +26,7 @@ class Renderer() {
 
     legend top left
      《 》Primary Key
-      ◯  Nullable
+      ∅  Nullable
       ➜  Foreign Key
       ∅
       ⇨
@@ -50,6 +47,25 @@ class Renderer() {
     }
 
     fun render(table: Table): String {
-        return "Table(${table.name.uppercase()})"
+        return "Table(${table.name.uppercase()}) { " + render(table.columns) + "}\n"
     }
 }
+
+
+fun render(columns: List<Column>): String =
+    columns.joinToString(separator = "\n    ", prefix = "\n    ", postfix = "\n") { render(it) }
+
+
+fun render(column: Column): String = column.run {
+    renderNullable {
+        renderName()
+    }
+}
+
+fun Column.renderNullable(target: Column.() -> String): String =
+    when (this.nullable) {
+        true -> "nullable(${this.target()})"
+        false -> this.target()
+    }
+
+fun Column.renderName() = this.name
