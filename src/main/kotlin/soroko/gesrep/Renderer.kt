@@ -13,7 +13,8 @@ class Renderer() {
     !define Table(name) class name << (T,#FFAAAA) >>
     ' ##################################
     !define pk(x) <b>《x》</b>
-    !define unique(x) <color:green>x</color>
+    !define uniqueIndex(x) <color:green>⇉ x ⇇</color>
+    !define nonUniqueIndex(x) <color:red>⇉ x ⇇</color>
     !define nullable(x) x ∅ 
     !define fk(x, y, z) x➜y.z
     ' other tags available:
@@ -57,10 +58,15 @@ fun render(columns: List<Column>): String =
 
 
 fun render(column: Column): String = column.run {
-    renderNullable {
-        renderName()
+    renderType {
+        renderNullable {
+            renderName()
+        }
     }
 }
+
+fun Column.renderType(target: Column.() -> String) = "${this.target()} :: ${this.type.uppercase()}"
+
 
 fun Column.renderNullable(target: Column.() -> String): String =
     when (this.nullable) {

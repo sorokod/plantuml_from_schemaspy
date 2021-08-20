@@ -35,7 +35,8 @@ data class Table(
     @JsonProperty("column")
     val columns: List<Column>,
 
-    val index: List<Index>?
+    @JsonProperty("index")
+    val indices: List<Index>?
 )
 
 data class Column(
@@ -58,7 +59,15 @@ data class Parent(
 data class Index(
     val name: String,
     val unique: Boolean,
-    val column: IndexColumn
+    val column: List<IndexColumn>
 )
 
 data class IndexColumn(val name: String)
+
+
+
+fun Table.getColumn(columnName: String): Column =
+    this.columns.firstOrNull { it.name == columnName }!!
+
+
+
