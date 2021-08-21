@@ -7,16 +7,16 @@ class Renderer() {
      */
     fun boilerplateWrap(data: String): String {
         return """
-    @startuml
+@startuml
     ' uncomment the line below for retina display
     'skinparam dpi 300
     !define Table(name) class name << (T,#FFAAAA) >>
     ' ##################################
-    !define pk(x) <b>《x》</b>
-    !define uniqueIndex(x) <color:green>⇉ x ⇇</color>
-    !define nonUniqueIndex(x) <color:red>⇉ x ⇇</color>
+    !define uniqueIndex(x) <color:red><b>》x《
+    !define index(x) <color:red>⟦x⟧</color>   
     !define nullable(x) x ∅ 
     !define fk(x, y, z) x➜y.z
+    !define fkArrow(x, y) x --> y
     ' other tags available:
     ' <i></i>
     ' <back:COLOR></color>, where color is a color name or html color code
@@ -26,47 +26,61 @@ class Renderer() {
     hide stereotypes
 
     legend top left
-     《 》Primary Key
+     》《  Unique Index
+     ⟦ ⟧   Index
       ∅  Nullable
       ➜  Foreign Key
       ∅
       ⇨
       ✱
+      ACCOUNT --> ACCOUNT_BACKLOG  
     endlegend
 
     $data
 
-    @enduml
+@enduml
 """.trimIndent()
     }
 
     fun render(database: Database): String {
-        val data =
-            database.tables.tables.map { render(it) }
-                .joinToString(separator = "\n    ", prefix = "    \n", postfix = "\n")
+        val fkList: MutableList<Pair<String, String>> = mutableListOf()
+        val tableList = database.tables.tables
+
+        var data = tableList.joinToString(separator = "\n", prefix = "\n", postfix = "\n") { render(it, fkList) }
+
+        if (fkList.isNotEmpty()) {
+            val fkArrows = fkList.map { "fkArrow$it" }
+            data += fkArrows.joinToString(separator = "\n    ", prefix = "\n", postfix = "\n")
+        }
+
         return boilerplateWrap(data)
     }
 
-    fun render(table: Table): String {
-        return "Table(${table.name.uppercase()}) { " + render(table.columns) + "}\n"
+    fun render(table: Table, fkMap: MutableList<Pair<String, String>>): String {
+        val columnData = renderAllColumns(table.columns)
+        val indexData = renderAllIndices(table.indices)
+        val fkData = renderAllFKs(table.columns, table.name, fkMap)
+
+        return "Table(${table.name.uppercase()}) { " + columnData + indexData + fkData + "}\n"
     }
 }
 
 
-fun render(columns: List<Column>): String =
-    columns.joinToString(separator = "\n    ", prefix = "\n    ", postfix = "\n") { render(it) }
+fun renderAllColumns(columns: List<Column>): String {
 
-
-fun render(column: Column): String = column.run {
-    renderType {
-        renderNullable {
-            renderName()
+    fun renderOne(column: Column): String = column.run {
+        renderType {
+            renderNullable {
+                renderName()
+            }
         }
     }
+
+    return columns.joinToString(separator = "\n    ", prefix = "\n    ", postfix = "\n") { renderOne(it) }
 }
 
-fun Column.renderType(target: Column.() -> String) = "${this.target()} :: ${this.type.uppercase()}"
 
+fun Column.renderType(target: Column.() -> String) = "${this.target()} :: ${this.type.uppercase()}"
 
 fun Column.renderNullable(target: Column.() -> String): String =
     when (this.nullable) {
@@ -75,3 +89,39 @@ fun Column.renderNullable(target: Column.() -> String): String =
     }
 
 fun Column.renderName() = this.name
+
+fun renderAllFKs(columns: List<Column>, tableName: String, fkList: MutableList<Pair<String, String>>): String {
+    val fkColumns = columns.filter { it.parent != null }
+    return when (fkColumns.isEmpty()) {
+        true -> ""
+        false -> {
+            val fkData = fkColumns.map { column ->
+                val parent = column.parent!!
+                fkList.add(Pair(tableName.uppercase(), parent.table.uppercase()))
+                "fk(${column.name}, ${parent.table.uppercase()}, ${parent.column})"
+            }
+            val data = fkData.joinToString(separator = "\n    ", prefix = "\n    ", postfix = "\n")
+            "    ==FK==$data"
+        }
+    }
+}
+
+fun renderAllIndices(indices: List<Index>): String =
+    when (indices.isEmpty()) {
+        true -> ""
+        false -> {
+            val indexData =
+                indices.map { renderOne(it) }.joinToString(separator = "\n    ", prefix = "\n    ", postfix = "\n")
+            "    ==Indices==$indexData"
+        }
+    }
+
+
+fun renderOne(index: Index): String {
+    val data = index.columns.joinToString(separator = " | ") { it.name }
+    return if (index.unique) {
+        "uniqueIndex($data)"
+    } else {
+        "index($data)"
+    }
+}

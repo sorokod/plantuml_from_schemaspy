@@ -36,7 +36,7 @@ data class Table(
     val columns: List<Column>,
 
     @JsonProperty("index")
-    val indices: List<Index>?
+    val indices: List<Index> = emptyList()
 )
 
 data class Column(
@@ -59,7 +59,8 @@ data class Parent(
 data class Index(
     val name: String,
     val unique: Boolean,
-    val column: List<IndexColumn>
+    @JsonProperty("column")
+    val columns: List<IndexColumn>
 )
 
 data class IndexColumn(val name: String)
