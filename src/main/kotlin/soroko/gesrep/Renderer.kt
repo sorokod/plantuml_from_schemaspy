@@ -1,19 +1,26 @@
 package soroko.gesrep
 
+
 class Renderer {
 
     fun render(database: Database): String {
         val fkList: MutableList<Pair<String, String>> = mutableListOf()
         val tableList = database.tables.tables
+        val sequenceList = database.sequences?.sequence ?: emptyList()
 
-        var data = tableList.joinAsRows { render(it, fkList) }
+        var tableData = tableList.joinAsRows { render(it, fkList) }
 
         if (fkList.isNotEmpty()) {
             val fkArrows = fkList.map { "fkArrow$it" }
-            data += fkArrows.joinAsRows()
+            tableData += fkArrows.joinAsRows()
         }
 
-        return pumlTemplate(data)
+        var sequenceData = ""
+        if (sequenceList.isNotEmpty()) {
+            sequenceData = renderAllSequences(sequenceList)
+        }
+
+        return pumlTemplate(tableData, sequenceData)
     }
 
     fun render(table: Table, fkMap: MutableList<Pair<String, String>>): String {
@@ -25,6 +32,17 @@ class Renderer {
     }
 }
 
+fun renderAllSequences(sequences: List<Sequence>): String {
+    fun renderOne(seq: Sequence): String {
+        return """
+            Sequence(${seq.name.uppercase()}) {
+                start :: ${seq.startValue}
+                increment :: ${seq.increment}
+            }
+        """.trimIndent()
+    }
+    return sequences.map { renderOne(it) }.joinAsRows()
+}
 
 fun renderAllColumns(columns: List<Column>): String {
 
