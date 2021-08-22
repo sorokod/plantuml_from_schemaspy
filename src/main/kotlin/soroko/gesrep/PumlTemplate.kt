@@ -1,9 +1,9 @@
 package soroko.gesrep
 
-fun pumlTemplate(tableData: String, sequenceData: String): String {
-    return """
+fun pumlTemplate(tableData: String, sequenceData: String): String =
+    """
 @startuml
-    'uncomment the line below for retina display
+    'Uncomment for retina display
     'skinparam dpi 300
     
     skinparam defaultFontName Courier
@@ -42,14 +42,14 @@ fun pumlTemplate(tableData: String, sequenceData: String): String {
 
 @enduml
 """.trimIndent()
-}
+
 
 fun sequenceTemplate(name: String, startValue: Int, increment: Int): String = """
 Sequence($name) {
     startValue :: $startValue
     increment :: $increment
 }    
-""".trimIndent()
+"""
 
 fun tableTemplate(name: String, columnData: String, indexData: String, fkData: String): String = """
 Table($name) {
@@ -57,7 +57,7 @@ Table($name) {
     $indexData
     $fkData
 }    
-""".trimIndent()
+"""
 
 fun viewTemplate(name: String, columnData: String, indexData: String, fkData: String): String = """
 View($name) {
@@ -65,4 +65,4 @@ View($name) {
     $indexData
     $fkData
 }    
-""".trimIndent()
+"""

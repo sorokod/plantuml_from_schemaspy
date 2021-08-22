@@ -33,14 +33,14 @@ fun renderAllTables(tables: List<Table>, fkList: MutableList<Pair<String, String
             tableTemplate(table.name.uppercase(), columnData, indexData, fkData)
         }
     }
-    return tables.joinAsRows { renderOne(it, fkList) }
+    return tables.joinAsRows { table -> renderOne(table, fkList) }
 }
 
 fun renderAllSequences(sequences: List<Sequence>): String {
     fun renderOne(seq: Sequence): String =
         sequenceTemplate(seq.name.uppercase(), seq.startValue, seq.increment)
 
-    return sequences.map { renderOne(it) }.joinAsRows()
+    return sequences.map { seq -> renderOne(seq) }.joinAsRows()
 }
 
 fun renderAllColumns(columns: List<Column>): String {
@@ -60,7 +60,7 @@ fun renderAllColumns(columns: List<Column>): String {
             }
         }
     }
-    return columns.joinAsRows { renderOne(it) }
+    return columns.joinAsRows { col -> renderOne(col) }
 }
 
 
@@ -74,29 +74,29 @@ fun renderAllFKs(columns: List<Column>, tableName: String, fkList: MutableList<P
                 fkList.add(Pair(tableName.uppercase(), parent.table.uppercase()))
                 "fk(${column.name}, ${parent.table.uppercase()}, ${parent.column})"
             }
-            val data = fkData.joinToString(separator = "\n", prefix = "\n", postfix = "\n")
+            val data = fkData.joinAsRows()
             "==FK==$data"
         }
     }
 }
 
 fun renderAllIndices(indices: List<Index>): String {
+
+    fun renderOne(index: Index): String {
+        val data = index.columns.joinToString(separator = " | ") { it.name }
+        return if (index.unique) {
+            "uniqueIndex($data)"
+        } else {
+            "index($data)"
+        }
+    }
+
     if (indices.isEmpty()) return ""
     // we want unique indices to precede the non-unique and all indices to be sorted
     val (uniqueIdx, nonUniqueIdx) = indices.partition { it.unique }
     val orderedIndices = uniqueIdx.sortedBy { it.name } + nonUniqueIdx.sortedBy { it.name }
 
-    val indexData =
-        orderedIndices.map { renderOne(it) }.joinToString(separator = "\n", prefix = "\n", postfix = "\n")
-
-    return "==Indices==$indexData"
+    val data = orderedIndices.map { idx -> renderOne(idx) }.joinAsRows()
+    return "==Indices==$data"
 }
 
-fun renderOne(index: Index): String {
-    val data = index.columns.joinToString(separator = " | ") { it.name }
-    return if (index.unique) {
-        "uniqueIndex($data)"
-    } else {
-        "index($data)"
-    }
-}
