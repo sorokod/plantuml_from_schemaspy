@@ -1,6 +1,6 @@
 import soroko.gesrep.Database
-import soroko.gesrep.Renderer
 import soroko.gesrep.process
+import soroko.gesrep.render
 import java.io.File
 
 fun main(args: Array<String>) {
@@ -8,10 +8,9 @@ fun main(args: Array<String>) {
     val outFile = File(args[1])
 
     val db: Database = process(inFile)
+    val data = render(db)
 
-    val x = Renderer().render(db)
-
-    outFile.writeText(x)
+    outFile.writeText(data)
 
     println("DONE.")
 }

@@ -1,28 +1,27 @@
 package soroko.gesrep
 
 
-class Renderer {
+fun render(database: Database): String {
+    val fkList: MutableList<Pair<String, String>> = mutableListOf()
+    val tableList = database.tables.tables
+    val sequenceList = database.sequences?.sequence ?: emptyList()
 
-    fun render(database: Database): String {
-        val fkList: MutableList<Pair<String, String>> = mutableListOf()
-        val tableList = database.tables.tables
-        val sequenceList = database.sequences?.sequence ?: emptyList()
+    var tableData = renderAllTables(tableList, fkList)
 
-        var tableData = tableList.joinAsRows { renderOne(it, fkList) }
-
-        if (fkList.isNotEmpty()) {
-            val fkArrows = fkList.map { "fkArrow$it" }
-            tableData += fkArrows.joinAsRows()
-        }
-
-        var sequenceData = ""
-        if (sequenceList.isNotEmpty()) {
-            sequenceData = renderAllSequences(sequenceList)
-        }
-
-        return pumlTemplate(tableData, sequenceData)
+    if (fkList.isNotEmpty()) {
+        val fkArrows = fkList.map { "fkArrow$it" }
+        tableData += fkArrows.joinAsRows()
     }
 
+    var sequenceData = ""
+    if (sequenceList.isNotEmpty()) {
+        sequenceData = renderAllSequences(sequenceList)
+    }
+
+    return pumlTemplate(tableData, sequenceData)
+}
+
+fun renderAllTables(tables: List<Table>, fkList: MutableList<Pair<String, String>>): String {
     fun renderOne(table: Table, fkMap: MutableList<Pair<String, String>>): String {
         val columnData = renderAllColumns(table.columns)
         val indexData = renderAllIndices(table.indices)
@@ -34,6 +33,7 @@ class Renderer {
             tableTemplate(table.name.uppercase(), columnData, indexData, fkData)
         }
     }
+    return tables.joinAsRows { renderOne(it, fkList) }
 }
 
 fun renderAllSequences(sequences: List<Sequence>): String {
