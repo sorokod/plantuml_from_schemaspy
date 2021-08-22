@@ -24,3 +24,10 @@ schemaspy.o=<OUTPUT_DIR>/schemaspy_out
 schemaspy.schemas=public
 schemaspy.I=<STUFF_TO_IGNORE>
 ```
+
+
+### License
+
+Copyright 2021 David Soroko.
+
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
