@@ -1,6 +1,5 @@
-import soroko.gesrep.Database
-import soroko.gesrep.process
-import soroko.gesrep.render
+package soroko.gesrep
+
 import java.io.File
 
 fun main(args: Array<String>) {

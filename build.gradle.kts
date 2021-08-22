@@ -1,12 +1,14 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     kotlin("jvm") version "1.5.10"
     application
+    id("com.github.johnrengelman.shadow") version "7.0.0" // fat jar support
 }
 
-group = "org.xor"
-version = "1.0-SNAPSHOT"
+group = "soroko.gesrep"
+version = "1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -28,5 +30,18 @@ tasks.withType<KotlinCompile>() {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("soroko.gesrep.MainKt")
 }
+
+
+tasks.withType<ShadowJar> {
+    manifest {
+        attributes(
+            mapOf(
+                "ImplementationTitle" to project.name,
+                "Implementation-Version" to project.version
+            )
+        )
+    }
+}
+

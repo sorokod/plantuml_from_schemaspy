@@ -1,4 +1,11 @@
-A utility for rendering the XML output of Schemaspy.  
+A utility for rendering the XML output of [Schemaspy](https://github.com/schemaspy/schemaspy) into a PlantUML diagram.
+
+
+## Goal
+In general, schema diagrams are low fidelity representations of the actual schema. The goal of this utility is 
+to generate a diagram that provides the user with a **general** idea of what the actual schema is. Ultimately, the fine 
+details are in that `.sql` file.
+
 
 ## The Schemaspy part
 
