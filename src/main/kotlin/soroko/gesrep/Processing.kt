@@ -28,13 +28,19 @@ fun process(schemaFile: File): Database {
     db.tables.tables.forEach { table ->
         Collections.sort(table.columns) { c1: Column, c2: Column -> c1.name.compareTo(c2.name) }
     }
-    report(db)
-    return db
+
+    return db.also { report(it) }
 }
 
 private fun report(db: Database) =
     println("Parsed tables: ${db.tables.tables.size}")
 
 
+/**
+ * Sometimes Jackson converts XML to JSON in ways that are not completely obvious.
+ * This can help to figure out what is going on.
+ */
+fun xml2json(xmlFile: File): String =
+    Mapper.mapper.readTree(xmlFile).toPrettyString()
 
 

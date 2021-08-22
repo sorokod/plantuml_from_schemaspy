@@ -1,11 +1,15 @@
 A utility for rendering the XML output of Schemaspy.  
 
 ## The Schemaspy part
+
+To generate the schema XML file, the Schemaspy jar is required. Version used here is `6.1.0` . It is available from
+[GitHub](https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6.1.0.jar) 
+
 Since we are not interested in HTML output the `-nohtml` parameter should be used. An invocation may look like this:
 
 `java -jar schemaspy-6.1.0.jar -configFile ./schemaspy.config`
 
-where `schemaspy.config` for Postgres may be
+where `schemaspy.config` for Postgres may be:
 
 ```properties
 schemaspy.nohtml

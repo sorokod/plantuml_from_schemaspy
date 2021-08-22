@@ -1,0 +1,1386 @@
+{
+  "name": "demo",
+  "schema": "bookings",
+  "type": "PostgreSQL - 12.8",
+  "sequences": {
+    "sequence": {
+      "increment": "1",
+      "name": "flights_flight_id_seq",
+      "startValue": "1"
+    }
+  },
+  "tables": {
+    "table": [
+      {
+        "name": "aircrafts",
+        "numRows": "0",
+        "remarks": "Aircrafts",
+        "schema": "bookings",
+        "type": "VIEW",
+        "viewSql": " SELECT ml.aircraft_code,\n    (ml.model ->> lang()) AS model,\n    ml.range\n   FROM aircrafts_data ml;",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "aircraft_code",
+            "nullable": "true",
+            "remarks": "Aircraft code, IATA",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "model",
+            "nullable": "true",
+            "remarks": "Aircraft model",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "range",
+            "nullable": "true",
+            "remarks": "Maximal flying distance, km",
+            "size": "10",
+            "type": "int4",
+            "typeCode": "4"
+          }
+        ]
+      },
+      {
+        "name": "aircrafts_data",
+        "numRows": "9",
+        "remarks": "Aircrafts (internal data)",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "aircraft_code",
+            "nullable": "false",
+            "remarks": "Aircraft code, IATA",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1",
+            "child": [
+              {
+                "column": "aircraft_code",
+                "foreignKey": "flights_aircraft_code_fkey",
+                "implied": "false",
+                "onDeleteCascade": "false",
+                "schema": "bookings",
+                "table": "flights"
+              },
+              {
+                "column": "aircraft_code",
+                "foreignKey": "seats_aircraft_code_fkey",
+                "implied": "false",
+                "onDeleteCascade": "true",
+                "schema": "bookings",
+                "table": "seats"
+              }
+            ]
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "model",
+            "nullable": "false",
+            "remarks": "Aircraft model",
+            "size": "2147483647",
+            "type": "jsonb",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "range",
+            "nullable": "false",
+            "remarks": "Maximal flying distance, km",
+            "size": "10",
+            "type": "int4",
+            "typeCode": "4"
+          }
+        ],
+        "primaryKey": {
+          "column": "aircraft_code",
+          "sequenceNumberInPK": "1"
+        },
+        "index": {
+          "name": "aircrafts_pkey",
+          "unique": "true",
+          "column": {
+            "ascending": "true",
+            "name": "aircraft_code"
+          }
+        },
+        "checkConstraint": {
+          "constraint": "((range > 0))",
+          "name": "aircrafts_range_check"
+        }
+      },
+      {
+        "name": "airports",
+        "numRows": "0",
+        "remarks": "Airports",
+        "schema": "bookings",
+        "type": "VIEW",
+        "viewSql": " SELECT ml.airport_code,\n    (ml.airport_name ->> lang()) AS airport_name,\n    (ml.city ->> lang()) AS city,\n    ml.coordinates,\n    ml.timezone\n   FROM airports_data ml;",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "airport_code",
+            "nullable": "true",
+            "remarks": "Airport code",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "airport_name",
+            "nullable": "true",
+            "remarks": "Airport name",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "city",
+            "nullable": "true",
+            "remarks": "City",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "3",
+            "name": "coordinates",
+            "nullable": "true",
+            "remarks": "Airport coordinates (longitude and latitude)",
+            "size": "2147483647",
+            "type": "point",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "4",
+            "name": "timezone",
+            "nullable": "true",
+            "remarks": "Airport time zone",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          }
+        ]
+      },
+      {
+        "name": "airports_data",
+        "numRows": "104",
+        "remarks": "Airports (internal data)",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "airport_code",
+            "nullable": "false",
+            "remarks": "Airport code",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1",
+            "child": [
+              {
+                "column": "arrival_airport",
+                "foreignKey": "flights_arrival_airport_fkey",
+                "implied": "false",
+                "onDeleteCascade": "false",
+                "schema": "bookings",
+                "table": "flights"
+              },
+              {
+                "column": "departure_airport",
+                "foreignKey": "flights_departure_airport_fkey",
+                "implied": "false",
+                "onDeleteCascade": "false",
+                "schema": "bookings",
+                "table": "flights"
+              }
+            ]
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "airport_name",
+            "nullable": "false",
+            "remarks": "Airport name",
+            "size": "2147483647",
+            "type": "jsonb",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "city",
+            "nullable": "false",
+            "remarks": "City",
+            "size": "2147483647",
+            "type": "jsonb",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "3",
+            "name": "coordinates",
+            "nullable": "false",
+            "remarks": "Airport coordinates (longitude and latitude)",
+            "size": "2147483647",
+            "type": "point",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "4",
+            "name": "timezone",
+            "nullable": "false",
+            "remarks": "Airport time zone",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          }
+        ],
+        "primaryKey": {
+          "column": "airport_code",
+          "sequenceNumberInPK": "1"
+        },
+        "index": {
+          "name": "airports_data_pkey",
+          "unique": "true",
+          "column": {
+            "ascending": "true",
+            "name": "airport_code"
+          }
+        }
+      },
+      {
+        "name": "boarding_passes",
+        "numRows": "579686",
+        "remarks": "Boarding passes",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "ticket_no",
+            "nullable": "false",
+            "remarks": "Ticket number",
+            "size": "13",
+            "type": "bpchar",
+            "typeCode": "1",
+            "parent": {
+              "column": "ticket_no",
+              "foreignKey": "boarding_passes_ticket_no_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "ticket_flights"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "flight_id",
+            "nullable": "false",
+            "remarks": "Flight ID",
+            "size": "10",
+            "type": "int4",
+            "typeCode": "4",
+            "parent": {
+              "column": "flight_id",
+              "foreignKey": "boarding_passes_ticket_no_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "ticket_flights"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "boarding_no",
+            "nullable": "false",
+            "remarks": "Boarding pass number",
+            "size": "10",
+            "type": "int4",
+            "typeCode": "4"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "3",
+            "name": "seat_no",
+            "nullable": "false",
+            "remarks": "Seat number",
+            "size": "4",
+            "type": "varchar",
+            "typeCode": "12"
+          }
+        ],
+        "primaryKey": [
+          {
+            "column": "ticket_no",
+            "sequenceNumberInPK": "1"
+          },
+          {
+            "column": "flight_id",
+            "sequenceNumberInPK": "2"
+          }
+        ],
+        "index": [
+          {
+            "name": "boarding_passes_pkey",
+            "unique": "true",
+            "column": [
+              {
+                "ascending": "true",
+                "name": "ticket_no"
+              },
+              {
+                "ascending": "true",
+                "name": "flight_id"
+              }
+            ]
+          },
+          {
+            "name": "boarding_passes_flight_id_boarding_no_key",
+            "unique": "true",
+            "column": [
+              {
+                "ascending": "true",
+                "name": "flight_id"
+              },
+              {
+                "ascending": "true",
+                "name": "boarding_no"
+              }
+            ]
+          },
+          {
+            "name": "boarding_passes_flight_id_seat_no_key",
+            "unique": "true",
+            "column": [
+              {
+                "ascending": "true",
+                "name": "flight_id"
+              },
+              {
+                "ascending": "true",
+                "name": "seat_no"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "bookings",
+        "numRows": "262788",
+        "remarks": "Bookings",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "book_ref",
+            "nullable": "false",
+            "remarks": "Booking number",
+            "size": "6",
+            "type": "bpchar",
+            "typeCode": "1",
+            "child": {
+              "column": "book_ref",
+              "foreignKey": "tickets_book_ref_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "tickets"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "1",
+            "name": "book_date",
+            "nullable": "false",
+            "remarks": "Booking date",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "2",
+            "id": "2",
+            "name": "total_amount",
+            "nullable": "false",
+            "remarks": "Total booking cost",
+            "size": "10",
+            "type": "numeric",
+            "typeCode": "2"
+          }
+        ],
+        "primaryKey": {
+          "column": "book_ref",
+          "sequenceNumberInPK": "1"
+        },
+        "index": {
+          "name": "bookings_pkey",
+          "unique": "true",
+          "column": {
+            "ascending": "true",
+            "name": "book_ref"
+          }
+        }
+      },
+      {
+        "name": "flights",
+        "numRows": "33121",
+        "remarks": "Flights",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "true",
+            "defaultValue": "nextval('flights_flight_id_seq'::regclass)",
+            "digits": "0",
+            "id": "0",
+            "name": "flight_id",
+            "nullable": "false",
+            "remarks": "Flight ID",
+            "size": "10",
+            "type": "serial",
+            "typeCode": "4",
+            "child": {
+              "column": "flight_id",
+              "foreignKey": "ticket_flights_flight_id_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "ticket_flights"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "flight_no",
+            "nullable": "false",
+            "remarks": "Flight number",
+            "size": "6",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "2",
+            "name": "scheduled_departure",
+            "nullable": "false",
+            "remarks": "Scheduled departure time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "3",
+            "name": "scheduled_arrival",
+            "nullable": "false",
+            "remarks": "Scheduled arrival time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "4",
+            "name": "departure_airport",
+            "nullable": "false",
+            "remarks": "Airport of departure",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1",
+            "parent": {
+              "column": "airport_code",
+              "foreignKey": "flights_departure_airport_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "airports_data"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "5",
+            "name": "arrival_airport",
+            "nullable": "false",
+            "remarks": "Airport of arrival",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1",
+            "parent": {
+              "column": "airport_code",
+              "foreignKey": "flights_arrival_airport_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "airports_data"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "6",
+            "name": "status",
+            "nullable": "false",
+            "remarks": "Flight status",
+            "size": "20",
+            "type": "varchar",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "7",
+            "name": "aircraft_code",
+            "nullable": "false",
+            "remarks": "Aircraft code, IATA",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1",
+            "parent": {
+              "column": "aircraft_code",
+              "foreignKey": "flights_aircraft_code_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "aircrafts_data"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "8",
+            "name": "actual_departure",
+            "nullable": "true",
+            "remarks": "Actual departure time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "9",
+            "name": "actual_arrival",
+            "nullable": "true",
+            "remarks": "Actual arrival time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          }
+        ],
+        "primaryKey": {
+          "column": "flight_id",
+          "sequenceNumberInPK": "1"
+        },
+        "index": [
+          {
+            "name": "flights_pkey",
+            "unique": "true",
+            "column": {
+              "ascending": "true",
+              "name": "flight_id"
+            }
+          },
+          {
+            "name": "flights_flight_no_scheduled_departure_key",
+            "unique": "true",
+            "column": [
+              {
+                "ascending": "true",
+                "name": "flight_no"
+              },
+              {
+                "ascending": "true",
+                "name": "scheduled_departure"
+              }
+            ]
+          }
+        ],
+        "checkConstraint": [
+          {
+            "constraint": "((scheduled_arrival > scheduled_departure))",
+            "name": "flights_check"
+          },
+          {
+            "constraint": "(((actual_arrival IS NULL) OR ((actual_departure IS NOT NULL) AND (actual_arrival IS NOT NULL) AND (actual_arrival > actual_departure))))",
+            "name": "flights_check1"
+          },
+          {
+            "constraint": "(((status)::text = ANY (ARRAY[('On Time'::character varying)::text, ('Delayed'::character varying)::text, ('Departed'::character varying)::text, ('Arrived'::character varying)::text, ('Scheduled'::character varying)::text, ('Cancelled'::character varying)::text])))",
+            "name": "flights_status_check"
+          }
+        ]
+      },
+      {
+        "name": "flights_v",
+        "numRows": "0",
+        "remarks": "Flights (extended)",
+        "schema": "bookings",
+        "type": "VIEW",
+        "viewSql": " SELECT f.flight_id,\n    f.flight_no,\n    f.scheduled_departure,\n    timezone(dep.timezone, f.scheduled_departure) AS scheduled_departure_local,\n    f.scheduled_arrival,\n    timezone(arr.timezone, f.scheduled_arrival) AS scheduled_arrival_local,\n    (f.scheduled_arrival - f.scheduled_departure) AS scheduled_duration,\n    f.departure_airport,\n    dep.airport_name AS departure_airport_name,\n    dep.city AS departure_city,\n    f.arrival_airport,\n    arr.airport_name AS arrival_airport_name,\n    arr.city AS arrival_city,\n    f.status,\n    f.aircraft_code,\n    f.actual_departure,\n    timezone(dep.timezone, f.actual_departure) AS actual_departure_local,\n    f.actual_arrival,\n    timezone(arr.timezone, f.actual_arrival) AS actual_arrival_local,\n    (f.actual_arrival - f.actual_departure) AS actual_duration\n   FROM flights f,\n    airports dep,\n    airports arr\n  WHERE ((f.departure_airport = dep.airport_code) AND (f.arrival_airport = arr.airport_code));",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "flight_id",
+            "nullable": "true",
+            "remarks": "Flight ID",
+            "size": "10",
+            "type": "int4",
+            "typeCode": "4"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "flight_no",
+            "nullable": "true",
+            "remarks": "Flight number",
+            "size": "6",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "2",
+            "name": "scheduled_departure",
+            "nullable": "true",
+            "remarks": "Scheduled departure time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "3",
+            "name": "scheduled_departure_local",
+            "nullable": "true",
+            "remarks": "Scheduled departure time, local time at the point of departure",
+            "size": "29",
+            "type": "timestamp",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "4",
+            "name": "scheduled_arrival",
+            "nullable": "true",
+            "remarks": "Scheduled arrival time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "5",
+            "name": "scheduled_arrival_local",
+            "nullable": "true",
+            "remarks": "Scheduled arrival time, local time at the point of destination",
+            "size": "29",
+            "type": "timestamp",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "6",
+            "name": "scheduled_duration",
+            "nullable": "true",
+            "remarks": "Scheduled flight duration",
+            "size": "49",
+            "type": "interval",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "7",
+            "name": "departure_airport",
+            "nullable": "true",
+            "remarks": "Deprature airport code",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "8",
+            "name": "departure_airport_name",
+            "nullable": "true",
+            "remarks": "Departure airport name",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "9",
+            "name": "departure_city",
+            "nullable": "true",
+            "remarks": "City of departure",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "10",
+            "name": "arrival_airport",
+            "nullable": "true",
+            "remarks": "Arrival airport code",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "11",
+            "name": "arrival_airport_name",
+            "nullable": "true",
+            "remarks": "Arrival airport name",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "12",
+            "name": "arrival_city",
+            "nullable": "true",
+            "remarks": "City of arrival",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "13",
+            "name": "status",
+            "nullable": "true",
+            "remarks": "Flight status",
+            "size": "20",
+            "type": "varchar",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "14",
+            "name": "aircraft_code",
+            "nullable": "true",
+            "remarks": "Aircraft code, IATA",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "15",
+            "name": "actual_departure",
+            "nullable": "true",
+            "remarks": "Actual departure time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "16",
+            "name": "actual_departure_local",
+            "nullable": "true",
+            "remarks": "Actual departure time, local time at the point of departure",
+            "size": "29",
+            "type": "timestamp",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "17",
+            "name": "actual_arrival",
+            "nullable": "true",
+            "remarks": "Actual arrival time",
+            "size": "35",
+            "type": "timestamptz",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "18",
+            "name": "actual_arrival_local",
+            "nullable": "true",
+            "remarks": "Actual arrival time, local time at the point of destination",
+            "size": "29",
+            "type": "timestamp",
+            "typeCode": "93"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "19",
+            "name": "actual_duration",
+            "nullable": "true",
+            "remarks": "Actual flight duration",
+            "size": "49",
+            "type": "interval",
+            "typeCode": "1111"
+          }
+        ]
+      },
+      {
+        "name": "routes",
+        "numRows": "0",
+        "remarks": "Routes",
+        "schema": "bookings",
+        "type": "VIEW",
+        "viewSql": " WITH f3 AS (\n         SELECT f2.flight_no,\n            f2.departure_airport,\n            f2.arrival_airport,\n            f2.aircraft_code,\n            f2.duration,\n            array_agg(f2.days_of_week) AS days_of_week\n           FROM ( SELECT f1.flight_no,\n                    f1.departure_airport,\n                    f1.arrival_airport,\n                    f1.aircraft_code,\n                    f1.duration,\n                    f1.days_of_week\n                   FROM ( SELECT flights.flight_no,\n                            flights.departure_airport,\n                            flights.arrival_airport,\n                            flights.aircraft_code,\n                            (flights.scheduled_arrival - flights.scheduled_departure) AS duration,\n                            (to_char(flights.scheduled_departure, 'ID'::text))::integer AS days_of_week\n                           FROM flights) f1\n                  GROUP BY f1.flight_no, f1.departure_airport, f1.arrival_airport, f1.aircraft_code, f1.duration, f1.days_of_week\n                  ORDER BY f1.flight_no, f1.departure_airport, f1.arrival_airport, f1.aircraft_code, f1.duration, f1.days_of_week) f2\n          GROUP BY f2.flight_no, f2.departure_airport, f2.arrival_airport, f2.aircraft_code, f2.duration\n        )\n SELECT f3.flight_no,\n    f3.departure_airport,\n    dep.airport_name AS departure_airport_name,\n    dep.city AS departure_city,\n    f3.arrival_airport,\n    arr.airport_name AS arrival_airport_name,\n    arr.city AS arrival_city,\n    f3.aircraft_code,\n    f3.duration,\n    f3.days_of_week\n   FROM f3,\n    airports dep,\n    airports arr\n  WHERE ((f3.departure_airport = dep.airport_code) AND (f3.arrival_airport = arr.airport_code));",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "flight_no",
+            "nullable": "true",
+            "remarks": "Flight number",
+            "size": "6",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "departure_airport",
+            "nullable": "true",
+            "remarks": "Code of airport of departure",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "departure_airport_name",
+            "nullable": "true",
+            "remarks": "Name of airport of departure",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "3",
+            "name": "departure_city",
+            "nullable": "true",
+            "remarks": "City of departure",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "4",
+            "name": "arrival_airport",
+            "nullable": "true",
+            "remarks": "Code of airport of arrival",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "5",
+            "name": "arrival_airport_name",
+            "nullable": "true",
+            "remarks": "Name of airport of arrival",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "6",
+            "name": "arrival_city",
+            "nullable": "true",
+            "remarks": "City of arrival",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "7",
+            "name": "aircraft_code",
+            "nullable": "true",
+            "remarks": "Aircraft code, IATA",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "6",
+            "id": "8",
+            "name": "duration",
+            "nullable": "true",
+            "remarks": "Scheduled duration of flight",
+            "size": "49",
+            "type": "interval",
+            "typeCode": "1111"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "9",
+            "name": "days_of_week",
+            "nullable": "true",
+            "remarks": "Days of week on which flights are scheduled",
+            "size": "10",
+            "type": "_int4",
+            "typeCode": "2003"
+          }
+        ]
+      },
+      {
+        "name": "seats",
+        "numRows": "1339",
+        "remarks": "Seats",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "aircraft_code",
+            "nullable": "false",
+            "remarks": "Aircraft code, IATA",
+            "size": "3",
+            "type": "bpchar",
+            "typeCode": "1",
+            "parent": {
+              "column": "aircraft_code",
+              "foreignKey": "seats_aircraft_code_fkey",
+              "implied": "false",
+              "onDeleteCascade": "true",
+              "schema": "bookings",
+              "table": "aircrafts_data"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "seat_no",
+            "nullable": "false",
+            "remarks": "Seat number",
+            "size": "4",
+            "type": "varchar",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "fare_conditions",
+            "nullable": "false",
+            "remarks": "Travel class",
+            "size": "10",
+            "type": "varchar",
+            "typeCode": "12"
+          }
+        ],
+        "primaryKey": [
+          {
+            "column": "aircraft_code",
+            "sequenceNumberInPK": "1"
+          },
+          {
+            "column": "seat_no",
+            "sequenceNumberInPK": "2"
+          }
+        ],
+        "index": {
+          "name": "seats_pkey",
+          "unique": "true",
+          "column": [
+            {
+              "ascending": "true",
+              "name": "aircraft_code"
+            },
+            {
+              "ascending": "true",
+              "name": "seat_no"
+            }
+          ]
+        },
+        "checkConstraint": {
+          "constraint": "(((fare_conditions)::text = ANY (ARRAY[('Economy'::character varying)::text, ('Comfort'::character varying)::text, ('Business'::character varying)::text])))",
+          "name": "seats_fare_conditions_check"
+        }
+      },
+      {
+        "name": "ticket_flights",
+        "numRows": "1045726",
+        "remarks": "Flight segment",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "ticket_no",
+            "nullable": "false",
+            "remarks": "Ticket number",
+            "size": "13",
+            "type": "bpchar",
+            "typeCode": "1",
+            "child": {
+              "column": "ticket_no",
+              "foreignKey": "boarding_passes_ticket_no_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "boarding_passes"
+            },
+            "parent": {
+              "column": "ticket_no",
+              "foreignKey": "ticket_flights_ticket_no_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "tickets"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "flight_id",
+            "nullable": "false",
+            "remarks": "Flight ID",
+            "size": "10",
+            "type": "int4",
+            "typeCode": "4",
+            "child": {
+              "column": "flight_id",
+              "foreignKey": "boarding_passes_ticket_no_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "boarding_passes"
+            },
+            "parent": {
+              "column": "flight_id",
+              "foreignKey": "ticket_flights_flight_id_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "flights"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "fare_conditions",
+            "nullable": "false",
+            "remarks": "Travel class",
+            "size": "10",
+            "type": "varchar",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "2",
+            "id": "3",
+            "name": "amount",
+            "nullable": "false",
+            "remarks": "Travel cost",
+            "size": "10",
+            "type": "numeric",
+            "typeCode": "2"
+          }
+        ],
+        "primaryKey": [
+          {
+            "column": "ticket_no",
+            "sequenceNumberInPK": "1"
+          },
+          {
+            "column": "flight_id",
+            "sequenceNumberInPK": "2"
+          }
+        ],
+        "index": {
+          "name": "ticket_flights_pkey",
+          "unique": "true",
+          "column": [
+            {
+              "ascending": "true",
+              "name": "ticket_no"
+            },
+            {
+              "ascending": "true",
+              "name": "flight_id"
+            }
+          ]
+        },
+        "checkConstraint": [
+          {
+            "constraint": "((amount >= (0)::numeric))",
+            "name": "ticket_flights_amount_check"
+          },
+          {
+            "constraint": "(((fare_conditions)::text = ANY (ARRAY[('Economy'::character varying)::text, ('Comfort'::character varying)::text, ('Business'::character varying)::text])))",
+            "name": "ticket_flights_fare_conditions_check"
+          }
+        ]
+      },
+      {
+        "name": "tickets",
+        "numRows": "366733",
+        "remarks": "Tickets",
+        "schema": "bookings",
+        "type": "TABLE",
+        "column": [
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "0",
+            "name": "ticket_no",
+            "nullable": "false",
+            "remarks": "Ticket number",
+            "size": "13",
+            "type": "bpchar",
+            "typeCode": "1",
+            "child": {
+              "column": "ticket_no",
+              "foreignKey": "ticket_flights_ticket_no_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "ticket_flights"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "1",
+            "name": "book_ref",
+            "nullable": "false",
+            "remarks": "Booking number",
+            "size": "6",
+            "type": "bpchar",
+            "typeCode": "1",
+            "parent": {
+              "column": "book_ref",
+              "foreignKey": "tickets_book_ref_fkey",
+              "implied": "false",
+              "onDeleteCascade": "false",
+              "schema": "bookings",
+              "table": "bookings"
+            }
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "2",
+            "name": "passenger_id",
+            "nullable": "false",
+            "remarks": "Passenger ID",
+            "size": "20",
+            "type": "varchar",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "3",
+            "name": "passenger_name",
+            "nullable": "false",
+            "remarks": "Passenger name",
+            "size": "2147483647",
+            "type": "text",
+            "typeCode": "12"
+          },
+          {
+            "autoUpdated": "false",
+            "defaultValue": "null",
+            "digits": "0",
+            "id": "4",
+            "name": "contact_data",
+            "nullable": "true",
+            "remarks": "Passenger contact information",
+            "size": "2147483647",
+            "type": "jsonb",
+            "typeCode": "1111"
+          }
+        ],
+        "primaryKey": {
+          "column": "ticket_no",
+          "sequenceNumberInPK": "1"
+        },
+        "index": {
+          "name": "tickets_pkey",
+          "unique": "true",
+          "column": {
+            "ascending": "true",
+            "name": "ticket_no"
+          }
+        }
+      }
+    ]
+  }
+}

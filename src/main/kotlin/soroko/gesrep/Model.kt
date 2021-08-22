@@ -31,6 +31,7 @@ data class Tables(
 
 data class Table(
     val name: String,
+    val type: String,
 
     @JsonProperty("column")
     val columns: List<Column>,

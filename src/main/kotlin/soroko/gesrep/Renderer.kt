@@ -8,7 +8,7 @@ class Renderer {
         val tableList = database.tables.tables
         val sequenceList = database.sequences?.sequence ?: emptyList()
 
-        var tableData = tableList.joinAsRows { render(it, fkList) }
+        var tableData = tableList.joinAsRows { renderOne(it, fkList) }
 
         if (fkList.isNotEmpty()) {
             val fkArrows = fkList.map { "fkArrow$it" }
@@ -23,24 +23,23 @@ class Renderer {
         return pumlTemplate(tableData, sequenceData)
     }
 
-    fun render(table: Table, fkMap: MutableList<Pair<String, String>>): String {
+    fun renderOne(table: Table, fkMap: MutableList<Pair<String, String>>): String {
         val columnData = renderAllColumns(table.columns)
         val indexData = renderAllIndices(table.indices)
         val fkData = renderAllFKs(table.columns, table.name, fkMap)
 
-        return "Table(${table.name.uppercase()}) { " + columnData + indexData + fkData + "}\n"
+        return if (table.type == "VIEW") {
+            viewTemplate(table.name.uppercase(), columnData, indexData, fkData)
+        } else {
+            tableTemplate(table.name.uppercase(), columnData, indexData, fkData)
+        }
     }
 }
 
 fun renderAllSequences(sequences: List<Sequence>): String {
-    fun renderOne(seq: Sequence): String {
-        return """
-            Sequence(${seq.name.uppercase()}) {
-                start :: ${seq.startValue}
-                increment :: ${seq.increment}
-            }
-        """.trimIndent()
-    }
+    fun renderOne(seq: Sequence): String =
+        sequenceTemplate(seq.name.uppercase(), seq.startValue, seq.increment)
+
     return sequences.map { renderOne(it) }.joinAsRows()
 }
 
@@ -63,10 +62,6 @@ fun renderAllColumns(columns: List<Column>): String {
     }
     return columns.joinAsRows { renderOne(it) }
 }
-
-
-
-
 
 
 fun renderAllFKs(columns: List<Column>, tableName: String, fkList: MutableList<Pair<String, String>>): String {
