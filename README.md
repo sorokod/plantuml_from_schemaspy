@@ -43,7 +43,10 @@ This is the output from `test/resources/demo.bookings.xml` :
 
 ![diagram](docs/assets/demo.booking.svg)
 
-Because the output is a PlantUML file, it is possible to customise the "look and feel". For example try adding  
+Because the output is a PlantUML file, it is possible to customise the "look and feel". For example, try adding `!theme materia-outline`, 
+removing `skinparam defaultFontName Courier` and so on. 
+
+at the top.
 
 ### License
 
