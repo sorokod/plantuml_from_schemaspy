@@ -1,6 +1,6 @@
 package soroko.gesrep
 
-fun pumlTemplate(tableData: String, sequenceData: String): String =
+fun pumlTemplate(renderData: RenderData): String =
     """
 @startuml
     'Uncomment for retina display
@@ -14,6 +14,7 @@ fun pumlTemplate(tableData: String, sequenceData: String): String =
     !define View(name)     class name << (V,Silver) >>
     !define Sequence(name) class name << (S,Lime) >>
     ' ##################################
+    !define header(x)  title x
     !define uniqueIndex(x) -{method}<b>x
     !define index(x) #{method}<b>x
     !define nullable(x) x ∅ 
@@ -22,6 +23,8 @@ fun pumlTemplate(tableData: String, sequenceData: String): String =
     
     hide methods
     hide stereotypes
+
+    header(${renderData.dbName})
 
     legend top left
       T  Table
@@ -33,13 +36,13 @@ fun pumlTemplate(tableData: String, sequenceData: String): String =
       ➜  Foreign Key
     endlegend
 
-    package "Tables" <<Frame>> #FFFFFF {
-        $tableData
-    }
+package "Tables" <<Frame>> #FFFFFF {
+    ${renderData.tableData + renderData.fkData}
+}
 
-    package "Sequences" <<Frame>> #FFFFFF {
-        $sequenceData
-    }
+package "Sequences" <<Frame>> #FFFFFF {
+    ${renderData.sequenceData}
+}
 
 @enduml
 """

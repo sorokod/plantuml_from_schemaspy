@@ -1,31 +1,34 @@
 package soroko.gesrep
 
 
+class RenderData(
+    val dbName: String,
+    var tableData: String = "",
+    var sequenceData: String = "",
+    var fkData: String = "")
+
+
 fun render(database: Database): String {
-    val fkList: MutableList<Pair<String, String>> = mutableListOf()
+    val fkAccumulator: MutableList<Pair<String, String>> = mutableListOf()
     val tableList = database.tables.tables
     val sequenceList = database.sequences?.sequence ?: emptyList()
 
-    var tableData = renderAllTables(tableList, fkList)
+    val renderDataAccumulator = RenderData(database.name)
 
-    if (fkList.isNotEmpty()) {
-        val fkArrows = fkList.map { "fkArrow$it" }
-        tableData += fkArrows.joinAsRows("")
-    }
-
-    var sequenceData = ""
-    if (sequenceList.isNotEmpty()) {
+    with(renderDataAccumulator) {
+        tableData = renderAllTables(tableList, fkAccumulator)
+        fkData = fkAccumulator.map { "fkArrow$it" }.joinAsRows("")
         sequenceData = renderAllSequences(sequenceList)
     }
 
-    return pumlTemplate(tableData, sequenceData)
+    return pumlTemplate(renderDataAccumulator)
 }
 
-fun renderAllTables(tables: List<Table>, fkList: MutableList<Pair<String, String>>): String {
-    fun renderOne(table: Table, fkMap: MutableList<Pair<String, String>>): String {
+fun renderAllTables(tables: List<Table>, fkAccumulator: MutableList<Pair<String, String>>): String {
+    fun renderOne(table: Table, fkAccumulator: MutableList<Pair<String, String>>): String {
         val columnData = renderAllColumns(table.columns)
         val indexData = renderAllIndices(table.indices)
-        val fkData = renderAllFKs(table.columns, table.name, fkMap)
+        val fkData = renderAllFKs(table.columns, table.name, fkAccumulator)
 
         return if (table.type == "VIEW") {
             viewTemplate(table.name.uppercase(), columnData, indexData, fkData)
@@ -33,14 +36,13 @@ fun renderAllTables(tables: List<Table>, fkList: MutableList<Pair<String, String
             tableTemplate(table.name.uppercase(), columnData, indexData, fkData)
         }
     }
-    return tables.joinAsRows("    ") { table -> renderOne(table, fkList) }
+    return tables.joinAsRows("    ") { table -> renderOne(table, fkAccumulator) }
 }
 
 fun renderAllSequences(sequences: List<Sequence>): String {
     fun renderOne(seq: Sequence): String =
         sequenceTemplate(seq.name.uppercase(), seq.startValue, seq.increment)
 
-//    return sequences.map { seq -> renderOne(seq) }.joinAsRows()
     return sequences.map { seq -> renderOne(seq) }.joinAsRows("    ")
 }
 
@@ -51,27 +53,28 @@ fun renderAllColumns(columns: List<Column>): String {
     return columns.joinAsRows("    ") { col -> renderOne(col) }
 }
 
-
-fun renderAllFKs(columns: List<Column>, tableName: String, fkList: MutableList<Pair<String, String>>): String {
+/**
+ * We render FK within a table as well as accumulating a global list in fkAccumulator to support drawing arrows between
+ * dependent tables.
+ */
+fun renderAllFKs(columns: List<Column>, tableName: String, fkAccumulator: MutableList<Pair<String, String>>): String {
     val fkColumns = columns.filter { it.parent != null }
-    return when (fkColumns.isEmpty()) {
-        true -> ""
-        false -> {
-            val fkData = fkColumns.map { column ->
-                val parent = column.parent!!
-                fkList.add(Pair(tableName.uppercase(), parent.table.uppercase()))
-                "fk(${column.name}, ${parent.table.uppercase()}, ${parent.column})"
-            }
-            val data = fkData.joinAsRows("    ")
-            "==FK==\n    $data"
-        }
+
+    val fkData = fkColumns.map { column ->
+        val parent = column.parent!!
+        fkAccumulator.add(Pair(tableName.uppercase(), parent.table.uppercase()))
+        "fk(${column.name}, ${parent.table.uppercase()}, ${parent.column})"
+    }
+    return when (fkData.isNotEmpty()) {
+        true -> "==FK==\n    " + fkData.joinAsRows("    ")
+        false -> ""
     }
 }
 
 fun renderAllIndices(indices: List<Index>): String {
 
     fun renderOne(index: Index): String {
-        val data = index.columns.joinToString(separator = " | ") { it.name }
+        val data = index.columns.joinToString(separator = " + ") { it.name }
         return if (index.unique) {
             "uniqueIndex($data)"
         } else {
