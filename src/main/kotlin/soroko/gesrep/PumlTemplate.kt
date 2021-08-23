@@ -5,6 +5,7 @@ fun pumlTemplate(tableData: String, sequenceData: String): String =
 @startuml
     'Uncomment for retina display
     'skinparam dpi 300
+    scale max 2600 width
     
     skinparam defaultFontName Courier
     skinparam legendBackgroundColor Snow
@@ -32,16 +33,16 @@ fun pumlTemplate(tableData: String, sequenceData: String): String =
       ➜  Foreign Key
     endlegend
 
-    together {
-    $tableData
+    package "Tables" <<Frame>> #FFFFFF {
+        $tableData
     }
 
-    together {
-    $sequenceData
+    package "Sequences" <<Frame>> #FFFFFF {
+        $sequenceData
     }
 
 @enduml
-""".trimIndent()
+"""
 
 
 fun sequenceTemplate(name: String, startValue: Int, increment: Int): String = """
@@ -66,3 +67,12 @@ View($name) {
     $fkData
 }    
 """
+
+fun columnTemplate(name: String, nullable: Boolean, type: String): String {
+    val base = if(nullable) {
+        "nullable($name)"
+    } else {
+        name
+    }
+    return "$base :: $type"
+}
