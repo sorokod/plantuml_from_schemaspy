@@ -4,8 +4,10 @@ package soroko.gesrep
 class RenderData(
     val dbName: String,
     var tableData: String = "",
+    var viewData: String = "",
     var sequenceData: String = "",
-    var fkData: String = "")
+    var fkData: String = ""
+)
 
 
 fun render(database: Database): String {
@@ -16,7 +18,8 @@ fun render(database: Database): String {
     val renderDataAccumulator = RenderData(database.name)
 
     with(renderDataAccumulator) {
-        tableData = renderAllTables(tableList, fkAccumulator)
+        tableData = renderAllTablesAndViews(tableList, "TABLE", fkAccumulator)
+        viewData = renderAllTablesAndViews(tableList, "VIEW", fkAccumulator)
         fkData = fkAccumulator.map { "fkArrow$it" }.joinAsRows("")
         sequenceData = renderAllSequences(sequenceList)
     }
@@ -24,7 +27,12 @@ fun render(database: Database): String {
     return pumlTemplate(renderDataAccumulator)
 }
 
-fun renderAllTables(tables: List<Table>, fkAccumulator: MutableList<Pair<String, String>>): String {
+fun renderAllTablesAndViews(
+    tables: List<Table>,
+    typeFilter: String,
+    fkAccumulator: MutableList<Pair<String, String>>
+): String {
+
     fun renderOne(table: Table, fkAccumulator: MutableList<Pair<String, String>>): String {
         val columnData = renderAllColumns(table.columns)
         val indexData = renderAllIndices(table.indices)
@@ -36,7 +44,7 @@ fun renderAllTables(tables: List<Table>, fkAccumulator: MutableList<Pair<String,
             tableTemplate(table.name.uppercase(), columnData, indexData, fkData)
         }
     }
-    return tables.joinAsRows("    ") { table -> renderOne(table, fkAccumulator) }
+    return tables.filter { it.type == typeFilter }.joinAsRows("    ") { table -> renderOne(table, fkAccumulator) }
 }
 
 fun renderAllSequences(sequences: List<Sequence>): String {

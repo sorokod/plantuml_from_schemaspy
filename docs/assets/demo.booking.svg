@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1187px" preserveAspectRatio="none" style="width:1796px;height:1187px;background:#FFFFFF;" version="1.1" viewBox="0 0 1796 1187" width="1796px" zoomAndPan="magnify"><defs><filter height="300%" id="f1qpmhnqmh50y" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="Courier" font-size="18" lengthAdjust="spacing" textLength="44" x="869.5" y="13.5703">demo</text><rect fill="#FFFAFA" height="108" rx="5" ry="5" style="stroke:#000000;stroke-width:1.0;" width="164" x="8" y="26"/><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="64" x="14" y="41.5547">T  Table</text><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="56" x="14" y="55.5547">V  View</text><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="88" x="14" y="69.5547">S  Sequence</text><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="120" x="14" y="83.5547">■  Unique Index</text><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="152" x="14" y="97.5547">♢  Non-unique Index</text><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="144" x="14" y="111.5547">∅  Nullable Column</text><text fill="#000000" font-family="Courier" font-size="14" lengthAdjust="spacing" textLength="112" x="14" y="125.5547">➜  Foreign Key</text><!--MD5=[82cf26a9bbfffd9890dfd9b2f5dab541]
+cluster Tables--><rect fill="#FFFFFF" filter="url(#f1qpmhnqmh50y)" height="1025" style="stroke:#000000;stroke-width:1.5;" width="922" x="626" y="150"/><path d="M684,150 L684,157 L674,167 L626,167 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="Courier" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="48" x="629" y="161.5547">Tables</text><!--MD5=[999f80192410ad58725ac6d158b21eb2]
+cluster Views--><rect fill="#FFFFFF" filter="url(#f1qpmhnqmh50y)" height="501" style="stroke:#000000;stroke-width:1.5;" width="595" x="7" y="187"/><path d="M57,187 L57,194 L47,204 L7,204 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="Courier" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="40" x="10" y="198.5547">Views</text><!--MD5=[9902d071e48695426cbcb57e3a1d7730]
+cluster Sequences--><rect fill="#FFFFFF" filter="url(#f1qpmhnqmh50y)" height="111" style="stroke:#000000;stroke-width:1.5;" width="212" x="1572" y="203.5"/><path d="M1654,203.5 L1654,210.5 L1644,220.5 L1572,220.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><text fill="#000000" font-family="Courier" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="72" x="1575" y="215.0547">Sequences</text><!--MD5=[862830adf555b6a4f62aa50a282675d9]
+class AIRCRAFTS_DATA--><rect codeLine="36" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="110" id="AIRCRAFTS_DATA" style="stroke:#A80036;stroke-width:1.5;" width="173" x="779.5" y="1038"/><ellipse cx="813.85" cy="1054" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M815.1918,1061.25 L812.7431,1061.25 L812.7431,1050.9985 L809.5971,1050.9985 L809.5971,1048.8569 L818.3378,1048.8569 L818.3378,1050.9985 L815.1918,1050.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="98" x="832.15" y="1057.0469">AIRCRAFTS_DATA</text><line style="stroke:#A80036;stroke-width:1.5;" x1="780.5" x2="951.5" y1="1070" y2="1070"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="785.5" y="1082.293">aircraft_code :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="98" x="785.5" y="1093.293">model :: jsonb</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="91" x="785.5" y="1104.293">range :: int4</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="787.5" y="1126"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="91" x="799.5" y="1130.293">aircraft_code</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="0" x="806.5" y="1141.293"/><line style="stroke:#A80036;stroke-width:1.0;" x1="780.5" x2="841.5" y1="1116.5" y2="1116.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="780.5" x2="841.5" y1="1118.5" y2="1118.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="841.5" y="1118.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="890.5" x2="951.5" y1="1116.5" y2="1116.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="890.5" x2="951.5" y1="1118.5" y2="1118.5"/><!--MD5=[08695768ed0cc00fe7299557a2783e0b]
+class AIRPORTS_DATA--><rect codeLine="46" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="132" id="AIRPORTS_DATA" style="stroke:#A80036;stroke-width:1.5;" width="166" x="1060" y="1027"/><ellipse cx="1094.35" cy="1043" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1095.6918,1050.25 L1093.2431,1050.25 L1093.2431,1039.9985 L1090.0971,1039.9985 L1090.0971,1037.8569 L1098.8378,1037.8569 L1098.8378,1039.9985 L1095.6918,1039.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="91" x="1112.65" y="1046.0469">AIRPORTS_DATA</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1061" x2="1225" y1="1059" y2="1059"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="1066" y="1071.293">airport_code :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="147" x="1066" y="1082.293">airport_name :: jsonb</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="91" x="1066" y="1093.293">city :: jsonb</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="140" x="1066" y="1104.293">coordinates :: point</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="112" x="1066" y="1115.293">timezone :: text</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1068" y="1137"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="84" x="1080" y="1141.293">airport_code</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="0" x="1087" y="1152.293"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1061" x2="1118.5" y1="1127.5" y2="1127.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1061" x2="1118.5" y1="1129.5" y2="1129.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="1118.5" y="1129.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1167.5" x2="1225" y1="1127.5" y2="1127.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1167.5" x2="1225" y1="1129.5" y2="1129.5"/><!--MD5=[ed54ba1a774a76eb6f35ec06dfa0eb24]
+class BOARDING_PASSES--><rect codeLine="58" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="169" id="BOARDING_PASSES" style="stroke:#A80036;stroke-width:1.5;" width="250" x="1150" y="183"/><ellipse cx="1218.25" cy="199" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1219.5918,206.25 L1217.1431,206.25 L1217.1431,195.9985 L1213.9971,195.9985 L1213.9971,193.8569 L1222.7378,193.8569 L1222.7378,195.9985 L1219.5918,195.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="105" x="1238.75" y="202.0469">BOARDING_PASSES</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1151" x2="1399" y1="215" y2="215"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="1156" y="227.293">boarding_no :: int4</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="119" x="1156" y="238.293">flight_id :: int4</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="126" x="1156" y="249.293">seat_no :: varchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="1156" y="260.293">ticket_no :: bpchar</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1158" y="282"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="161" x="1170" y="286.293">flight_id + boarding_no</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1158" y="293"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="133" x="1170" y="297.293">flight_id + seat_no</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1158" y="304"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="147" x="1170" y="308.293">ticket_no + flight_id</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1151" x2="1250.5" y1="272.5" y2="272.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1151" x2="1250.5" y1="274.5" y2="274.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="1250.5" y="274.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1299.5" x2="1399" y1="272.5" y2="272.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1299.5" x2="1399" y1="274.5" y2="274.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="238" x="1156" y="334.293">flight_id➜TICKET_FLIGHTS.flight_id</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="238" x="1156" y="345.293">ticket_no➜TICKET_FLIGHTS.ticket_no</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1151" x2="1268" y1="320.5" y2="320.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1151" x2="1268" y1="322.5" y2="322.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="14" x="1268" y="322.793">FK</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1282" x2="1399" y1="320.5" y2="320.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1282" x2="1399" y1="322.5" y2="322.5"/><!--MD5=[db2d769be421e6b0da590227e361da20]
+class BOOKINGS--><rect codeLine="73" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="110" id="BOOKINGS" style="stroke:#A80036;stroke-width:1.5;" width="180" x="1345" y="1038"/><ellipse cx="1402.75" cy="1054" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1404.0918,1061.25 L1401.6431,1061.25 L1401.6431,1050.9985 L1398.4971,1050.9985 L1398.4971,1048.8569 L1407.2378,1048.8569 L1407.2378,1050.9985 L1404.0918,1050.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="56" x="1423.25" y="1057.0469">BOOKINGS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1346" x2="1524" y1="1070" y2="1070"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="168" x="1351" y="1082.293">book_date :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="126" x="1351" y="1093.293">book_ref :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="1351" y="1104.293">total_amount :: numeric</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1353" y="1126"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="56" x="1365" y="1130.293">book_ref</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="0" x="1372" y="1141.293"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1346" x2="1410.5" y1="1116.5" y2="1116.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1346" x2="1410.5" y1="1118.5" y2="1118.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="1410.5" y="1118.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1459.5" x2="1524" y1="1116.5" y2="1116.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1459.5" x2="1524" y1="1118.5" y2="1118.5"/><!--MD5=[7dab6e9fcca51b46dadbcbba72067cc6]
+class FLIGHTS--><rect codeLine="83" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="235" id="FLIGHTS" style="stroke:#A80036;stroke-width:1.5;" width="320" x="983" y="732"/><ellipse cx="1114.25" cy="748" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1115.5918,755.25 L1113.1431,755.25 L1113.1431,744.9985 L1109.9971,744.9985 L1109.9971,742.8569 L1118.7378,742.8569 L1118.7378,744.9985 L1115.5918,744.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="49" x="1134.75" y="751.0469">FLIGHTS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="984" x2="1302" y1="764" y2="764"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="217" x="989" y="776.293">actual_arrival ∅ :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="231" x="989" y="787.293">actual_departure ∅ :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="989" y="798.293">aircraft_code :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="175" x="989" y="809.293">arrival_airport :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="189" x="989" y="820.293">departure_airport :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="989" y="831.293">flight_id :: serial</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="989" y="842.293">flight_no :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="224" x="989" y="853.293">scheduled_arrival :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="238" x="989" y="864.293">scheduled_departure :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="119" x="989" y="875.293">status :: varchar</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="991" y="897"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="217" x="1003" y="901.293">flight_no + scheduled_departure</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="991" y="908"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="63" x="1003" y="912.293">flight_id</text><line style="stroke:#A80036;stroke-width:1.0;" x1="984" x2="1118.5" y1="887.5" y2="887.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="984" x2="1118.5" y1="889.5" y2="889.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="1118.5" y="889.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1167.5" x2="1302" y1="887.5" y2="887.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1167.5" x2="1302" y1="889.5" y2="889.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="294" x="989" y="938.293">aircraft_code➜AIRCRAFTS_DATA.aircraft_code</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="294" x="989" y="949.293">arrival_airport➜AIRPORTS_DATA.airport_code</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="308" x="989" y="960.293">departure_airport➜AIRPORTS_DATA.airport_code</text><line style="stroke:#A80036;stroke-width:1.0;" x1="984" x2="1136" y1="924.5" y2="924.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="984" x2="1136" y1="926.5" y2="926.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="14" x="1136" y="926.793">FK</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1150" x2="1302" y1="924.5" y2="924.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1150" x2="1302" y1="926.5" y2="926.5"/><!--MD5=[64a568210019fb3a7931fb37751834fc]
+class SEATS--><rect codeLine="104" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="125" id="SEATS" style="stroke:#A80036;stroke-width:1.5;" width="306" x="642" y="787"/><ellipse cx="773.25" cy="803" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M774.5918,810.25 L772.1431,810.25 L772.1431,799.9985 L768.9971,799.9985 L768.9971,797.8569 L777.7378,797.8569 L777.7378,799.9985 L774.5918,799.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="35" x="793.75" y="806.0469">SEATS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="643" x2="947" y1="819" y2="819"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="648" y="831.293">aircraft_code :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="182" x="648" y="842.293">fare_conditions :: varchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="126" x="648" y="853.293">seat_no :: varchar</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="650" y="875"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="161" x="662" y="879.293">aircraft_code + seat_no</text><line style="stroke:#A80036;stroke-width:1.0;" x1="643" x2="770.5" y1="865.5" y2="865.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="643" x2="770.5" y1="867.5" y2="867.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="770.5" y="867.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="819.5" x2="947" y1="865.5" y2="865.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="819.5" x2="947" y1="867.5" y2="867.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="294" x="648" y="905.293">aircraft_code➜AIRCRAFTS_DATA.aircraft_code</text><line style="stroke:#A80036;stroke-width:1.0;" x1="643" x2="788" y1="891.5" y2="891.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="643" x2="788" y1="893.5" y2="893.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="14" x="788" y="893.793">FK</text><line style="stroke:#A80036;stroke-width:1.0;" x1="802" x2="947" y1="891.5" y2="891.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802" x2="947" y1="893.5" y2="893.5"/><!--MD5=[f0a5ad0459196ce179f7cac4991310ea]
+class TICKET_FLIGHTS--><rect codeLine="115" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="147" id="TICKET_FLIGHTS" style="stroke:#A80036;stroke-width:1.5;" width="201" x="1174.5" y="468.5"/><ellipse cx="1221.75" cy="484.5" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1223.0918,491.75 L1220.6431,491.75 L1220.6431,481.4985 L1217.4971,481.4985 L1217.4971,479.3569 L1226.2378,479.3569 L1226.2378,481.4985 L1223.0918,481.4985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="98" x="1242.25" y="487.5469">TICKET_FLIGHTS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1175.5" x2="1374.5" y1="500.5" y2="500.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="119" x="1180.5" y="512.793">amount :: numeric</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="182" x="1180.5" y="523.793">fare_conditions :: varchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="119" x="1180.5" y="534.793">flight_id :: int4</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="1180.5" y="545.793">ticket_no :: bpchar</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1182.5" y="567.5"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="147" x="1194.5" y="571.793">ticket_no + flight_id</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1175.5" x2="1250.5" y1="558" y2="558"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1175.5" x2="1250.5" y1="560" y2="560"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="1250.5" y="560.293">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1299.5" x2="1374.5" y1="558" y2="558"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1299.5" x2="1374.5" y1="560" y2="560"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="189" x="1180.5" y="597.793">flight_id➜FLIGHTS.flight_id</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="189" x="1180.5" y="608.793">ticket_no➜TICKETS.ticket_no</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1175.5" x2="1268" y1="584" y2="584"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1175.5" x2="1268" y1="586" y2="586"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="14" x="1268" y="586.293">FK</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1282" x2="1374.5" y1="584" y2="584"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1282" x2="1374.5" y1="586" y2="586"/><!--MD5=[1f8d676a280760d22138916c56dbe53d]
+class TICKETS--><rect codeLine="128" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="147" id="TICKETS" style="stroke:#A80036;stroke-width:1.5;" width="194" x="1338" y="776"/><ellipse cx="1406.25" cy="792" fill="#FFD700" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1407.5918,799.25 L1405.1431,799.25 L1405.1431,788.9985 L1401.9971,788.9985 L1401.9971,786.8569 L1410.7378,786.8569 L1410.7378,788.9985 L1407.5918,788.9985 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="49" x="1426.75" y="795.0469">TICKETS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1339" x2="1531" y1="808" y2="808"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="126" x="1344" y="820.293">book_ref :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="1344" y="831.293">contact_data ∅ :: jsonb</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="1344" y="842.293">passenger_id :: varchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="1344" y="853.293">passenger_name :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="1344" y="864.293">ticket_no :: bpchar</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1346" y="886"/><text fill="#000000" font-family="Courier" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="63" x="1358" y="890.293">ticket_no</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1339" x2="1410.5" y1="876.5" y2="876.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1339" x2="1410.5" y1="878.5" y2="878.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="49" x="1410.5" y="878.793">Indices</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1459.5" x2="1531" y1="876.5" y2="876.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1459.5" x2="1531" y1="878.5" y2="878.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="182" x="1344" y="916.293">book_ref➜BOOKINGS.book_ref</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1339" x2="1428" y1="902.5" y2="902.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1339" x2="1428" y1="904.5" y2="904.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="14" x="1428" y="904.793">FK</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1442" x2="1531" y1="902.5" y2="902.5"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1442" x2="1531" y1="904.5" y2="904.5"/><!--MD5=[83c4a4c3ac22dbbff855c6ee759b153e]
+class AIRCRAFTS--><rect codeLine="152" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="73" id="AIRCRAFTS" style="stroke:#A80036;stroke-width:1.5;" width="187" x="75.5" y="231"/><ellipse cx="133.25" cy="247" fill="#C0C0C0" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M133.3633,251.958 L135.5464,241.6069 L138.0117,241.6069 L135.0649,254 L131.6699,254 L128.7231,241.6069 L131.1885,241.6069 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="63" x="153.75" y="250.0469">AIRCRAFTS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="76.5" x2="261.5" y1="263" y2="263"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="175" x="81.5" y="275.293">aircraft_code ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="105" x="81.5" y="286.293">model ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="105" x="81.5" y="297.293">range ∅ :: int4</text><!--MD5=[ee851c7fb323878ec1538387c14d82a6]
+class AIRPORTS--><rect codeLine="161" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="95" id="AIRPORTS" style="stroke:#A80036;stroke-width:1.5;" width="180" x="298" y="220"/><ellipse cx="355.75" cy="236" fill="#C0C0C0" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M355.8633,240.958 L358.0464,230.6069 L360.5117,230.6069 L357.5649,243 L354.1699,243 L351.2231,230.6069 L353.6885,230.6069 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="56" x="376.25" y="239.0469">AIRPORTS</text><line style="stroke:#A80036;stroke-width:1.5;" x1="299" x2="477" y1="252" y2="252"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="168" x="304" y="264.293">airport_code ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="304" y="275.293">airport_name ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="98" x="304" y="286.293">city ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="304" y="297.293">coordinates ∅ :: point</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="126" x="304" y="308.293">timezone ∅ :: text</text><!--MD5=[5ec0519db83e26f09ca828b67834c07a]
+class FLIGHTS_V--><rect codeLine="172" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="260" id="FLIGHTS_V" style="stroke:#A80036;stroke-width:1.5;" width="292" x="23" y="412"/><ellipse cx="133.25" cy="428" fill="#C0C0C0" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M133.3633,432.958 L135.5464,422.6069 L138.0117,422.6069 L135.0649,435 L131.6699,435 L128.7231,422.6069 L131.1885,422.6069 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="63" x="153.75" y="431.0469">FLIGHTS_V</text><line style="stroke:#A80036;stroke-width:1.5;" x1="24" x2="314" y1="444" y2="444"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="217" x="29" y="456.293">actual_arrival ∅ :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="245" x="29" y="467.293">actual_arrival_local ∅ :: timestamp</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="231" x="29" y="478.293">actual_departure ∅ :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="259" x="29" y="489.293">actual_departure_local ∅ :: timestamp</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="203" x="29" y="500.293">actual_duration ∅ :: interval</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="175" x="29" y="511.293">aircraft_code ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="189" x="29" y="522.293">arrival_airport ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="210" x="29" y="533.293">arrival_airport_name ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="29" y="544.293">arrival_city ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="203" x="29" y="555.293">departure_airport ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="224" x="29" y="566.293">departure_airport_name ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="168" x="29" y="577.293">departure_city ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="29" y="588.293">flight_id ∅ :: int4</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="147" x="29" y="599.293">flight_no ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="238" x="29" y="610.293">scheduled_arrival ∅ :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="266" x="29" y="621.293">scheduled_arrival_local ∅ :: timestamp</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="252" x="29" y="632.293">scheduled_departure ∅ :: timestamptz</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="280" x="29" y="643.293">scheduled_departure_local ∅ :: timestamp</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="224" x="29" y="654.293">scheduled_duration ∅ :: interval</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="133" x="29" y="665.293">status ∅ :: varchar</text><!--MD5=[9d71c07e415a0a7d40345abf3e1de222]
+class ROUTES--><rect codeLine="198" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="150" id="ROUTES" style="stroke:#A80036;stroke-width:1.5;" width="236" x="350" y="467"/><ellipse cx="442.75" cy="483" fill="#C0C0C0" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M442.8633,487.958 L445.0464,477.6069 L447.5117,477.6069 L444.5649,490 L441.1699,490 L438.2231,477.6069 L440.6885,477.6069 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="42" x="463.25" y="486.0469">ROUTES</text><line style="stroke:#A80036;stroke-width:1.5;" x1="351" x2="585" y1="499" y2="499"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="175" x="356" y="511.293">aircraft_code ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="189" x="356" y="522.293">arrival_airport ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="210" x="356" y="533.293">arrival_airport_name ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="356" y="544.293">arrival_city ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="161" x="356" y="555.293">days_of_week ∅ :: _int4</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="203" x="356" y="566.293">departure_airport ∅ :: bpchar</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="224" x="356" y="577.293">departure_airport_name ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="168" x="356" y="588.293">departure_city ∅ :: text</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="154" x="356" y="599.293">duration ∅ :: interval</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="147" x="356" y="610.293">flight_no ∅ :: bpchar</text><!--MD5=[c7f5d89e8f0d69ad75f51292c686bc1f]
+class FLIGHTS_FLIGHT_ID_SEQ--><rect codeLine="217" fill="#FEFECE" filter="url(#f1qpmhnqmh50y)" height="62" id="FLIGHTS_FLIGHT_ID_SEQ" style="stroke:#A80036;stroke-width:1.5;" width="179" x="1588.5" y="236.5"/><ellipse cx="1603.5" cy="252.5" fill="#00FF00" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M1603.2334,253.563 Q1601.3823,252.8574 1600.7266,252.0813 Q1600.0708,251.3052 1600.0708,249.9937 Q1600.0708,248.3086 1601.1499,247.3457 Q1602.229,246.3828 1604.1133,246.3828 Q1604.9683,246.3828 1605.8232,246.5779 Q1606.6782,246.7729 1607.5166,247.1548 L1607.5166,249.5454 Q1606.728,248.9893 1605.9146,248.6987 Q1605.1011,248.4082 1604.3042,248.4082 Q1603.416,248.4082 1602.9429,248.7651 Q1602.4697,249.1221 1602.4697,249.7861 Q1602.4697,250.3008 1602.8142,250.637 Q1603.1587,250.9731 1604.2544,251.3799 L1605.3086,251.7783 Q1606.8027,252.3262 1607.5083,253.231 Q1608.2139,254.1357 1608.2139,255.5137 Q1608.2139,257.3896 1607.1057,258.3152 Q1605.9976,259.2407 1603.7563,259.2407 Q1602.835,259.2407 1601.9094,259.0208 Q1600.9839,258.8008 1600.1206,258.3691 L1600.1206,255.8374 Q1601.1001,256.5347 1602.0173,256.875 Q1602.9346,257.2153 1603.8311,257.2153 Q1604.7358,257.2153 1605.2339,256.8044 Q1605.7319,256.3936 1605.7319,255.6548 Q1605.7319,255.0986 1605.3999,254.6794 Q1605.0679,254.2603 1604.437,254.0195 Z " fill="#000000"/><text fill="#000000" font-family="Courier" font-size="12" lengthAdjust="spacing" textLength="147" x="1617.5" y="255.5469">FLIGHTS_FLIGHT_ID_SEQ</text><line style="stroke:#A80036;stroke-width:1.5;" x1="1589.5" x2="1766.5" y1="268.5" y2="268.5"/><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="105" x="1594.5" y="280.793">startValue :: 1</text><text fill="#000000" font-family="Courier" font-size="11" lengthAdjust="spacing" textLength="98" x="1594.5" y="291.793">increment :: 1</text><!--MD5=[5a071946cd08d757e29e994eb5e11011]
+link BOARDING_PASSES to TICKET_FLIGHTS--><path codeLine="139" d="M1263.14,352.11 C1261.89,387.45 1261.96,428.38 1263.35,463.08 " fill="none" id="BOARDING_PASSES-to-TICKET_FLIGHTS" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1263.57,468.15,1267.1798,458.9865,1263.3553,463.1546,1259.1872,459.3301,1263.57,468.15" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5a071946cd08d757e29e994eb5e11011]
+link BOARDING_PASSES to TICKET_FLIGHTS--><path codeLine="140" d="M1287.56,352.11 C1288.88,387.45 1288.81,428.38 1287.33,463.08 " fill="none" id="BOARDING_PASSES-to-TICKET_FLIGHTS-1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1287.11,468.15,1291.4917,459.3295,1287.3241,463.1546,1283.499,458.987,1287.11,468.15" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[a032fc1b423d67dbdf495eb7559627a4]
+link FLIGHTS to AIRCRAFTS_DATA--><path codeLine="141" d="M1009.37,967.01 C982.56,990.38 955.5,1013.97 932.23,1034.26 " fill="none" id="FLIGHTS-to-AIRCRAFTS_DATA" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="928.23,1037.74,937.6435,1034.844,932,1034.4556,932.3884,1028.8121,928.23,1037.74" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8da963afebf190aa86eadf47dd5eab33]
+link FLIGHTS to AIRPORTS_DATA--><path codeLine="142" d="M1130.26,967.01 C1130.2,985.7 1130.54,1004.53 1131.3,1021.69 " fill="none" id="FLIGHTS-to-AIRPORTS_DATA" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1131.54,1026.97,1135.1248,1017.7967,1131.3117,1021.9752,1127.1332,1018.1621,1131.54,1026.97" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8da963afebf190aa86eadf47dd5eab33]
+link FLIGHTS to AIRPORTS_DATA--><path codeLine="143" d="M1156.49,967.01 C1156.56,985.7 1156.19,1004.53 1155.39,1021.69 " fill="none" id="FLIGHTS-to-AIRPORTS_DATA-1" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1155.13,1026.97,1159.5619,1018.1747,1155.3726,1021.9759,1151.5713,1017.7865,1155.13,1026.97" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ab5b134e3de28099a8e305c5b6cb33e3]
+link SEATS to AIRCRAFTS_DATA--><path codeLine="144" d="M813.1,912.07 C824.03,949.25 837.89,996.37 848.67,1033.07 " fill="none" id="SEATS-to-AIRCRAFTS_DATA" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="850.11,1037.95,851.43,1028.19,848.71,1033.15,843.75,1030.43,850.11,1037.95" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[034336e83f7559b51a8cac250e815c9d]
+link TICKET_FLIGHTS to FLIGHTS--><path codeLine="145" d="M1243.55,615.79 C1229.21,648.98 1211.84,689.18 1195.6,726.77 " fill="none" id="TICKET_FLIGHTS-to-FLIGHTS" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1193.42,731.81,1200.6594,725.1323,1195.4016,727.2195,1193.3145,721.9617,1193.42,731.81" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0cb0a6e143774c1eba5cded38f46d92f]
+link TICKET_FLIGHTS to TICKETS--><path codeLine="146" d="M1313.12,615.79 C1337.66,662.63 1369.51,723.45 1394.5,771.17 " fill="none" id="TICKET_FLIGHTS-to-TICKETS" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1396.89,775.74,1396.2667,765.9109,1394.5742,771.3086,1389.1765,769.6161,1396.89,775.74" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c4a60618f4fd4cff23cdf0248b6e2995]
+link TICKETS to BOOKINGS--><path codeLine="147" d="M1435,923.29 C1435,958.22 1435,999.55 1435,1032.56 " fill="none" id="TICKETS-to-BOOKINGS" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1435,1037.79,1439,1028.79,1435,1032.79,1431,1028.79,1435,1037.79" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[decf79c2256438bcab317228f8a6106d]
+link AIRCRAFTS to AIRPORTS--><!--MD5=[20a44183c8479490c6c896e5cbbfe3d9]
+link AIRCRAFTS to FLIGHTS_V--><!--MD5=[9145fbc743ab3f5ca5263f8eeb759042]
+link FLIGHTS_V to ROUTES--><!--MD5=[98a098650e4c5b2048bf38672aad95bc]
+@startuml
+    'Uncomment for retina display
+    'skinparam dpi 300
+    scale max 2600 width
+    
+    skinparam defaultFontName Courier
+    skinparam legendBackgroundColor Snow
+    
+    !define Table(name)    class name << (T,Gold) >>
+    !define View(name)     class name << (V,Silver) >>
+    !define Sequence(name) class name << (S,Lime) >>
+    ' ##################################
+    !define header(x)  title x
+    !define uniqueIndex(x) -{method}<b>x
+    !define index(x) #{method}<b>x
+    !define nullable(x) x ∅ 
+    !define fk(x, y, z) x➜y.z
+    !define fkArrow(x, y) x - -> y
+    
+    hide methods
+    hide stereotypes
+
+    header(demo)
+
+    legend top left
+      T  Table
+      V  View
+      S  Sequence 
+      ■  Unique Index
+      ♢  Non-unique Index
+      ∅  Nullable Column
+      ➜  Foreign Key
+    endlegend
+
+package "Tables" <<Frame>> #FFFFFF {
+    
+Table(AIRCRAFTS_DATA) {
+    aircraft_code :: bpchar
+    model :: jsonb
+    range :: int4
+    ==Indices==
+    uniqueIndex(aircraft_code)
+    
+}    
+
+    
+Table(AIRPORTS_DATA) {
+    airport_code :: bpchar
+    airport_name :: jsonb
+    city :: jsonb
+    coordinates :: point
+    timezone :: text
+    ==Indices==
+    uniqueIndex(airport_code)
+    
+}    
+
+    
+Table(BOARDING_PASSES) {
+    boarding_no :: int4
+    flight_id :: int4
+    seat_no :: varchar
+    ticket_no :: bpchar
+    ==Indices==
+    uniqueIndex(flight_id + boarding_no)
+    uniqueIndex(flight_id + seat_no)
+    uniqueIndex(ticket_no + flight_id)
+    ==FK==
+    fk(flight_id, TICKET_FLIGHTS, flight_id)
+    fk(ticket_no, TICKET_FLIGHTS, ticket_no)
+}    
+
+    
+Table(BOOKINGS) {
+    book_date :: timestamptz
+    book_ref :: bpchar
+    total_amount :: numeric
+    ==Indices==
+    uniqueIndex(book_ref)
+    
+}    
+
+    
+Table(FLIGHTS) {
+    nullable(actual_arrival) :: timestamptz
+    nullable(actual_departure) :: timestamptz
+    aircraft_code :: bpchar
+    arrival_airport :: bpchar
+    departure_airport :: bpchar
+    flight_id :: serial
+    flight_no :: bpchar
+    scheduled_arrival :: timestamptz
+    scheduled_departure :: timestamptz
+    status :: varchar
+    ==Indices==
+    uniqueIndex(flight_no + scheduled_departure)
+    uniqueIndex(flight_id)
+    ==FK==
+    fk(aircraft_code, AIRCRAFTS_DATA, aircraft_code)
+    fk(arrival_airport, AIRPORTS_DATA, airport_code)
+    fk(departure_airport, AIRPORTS_DATA, airport_code)
+}    
+
+    
+Table(SEATS) {
+    aircraft_code :: bpchar
+    fare_conditions :: varchar
+    seat_no :: varchar
+    ==Indices==
+    uniqueIndex(aircraft_code + seat_no)
+    ==FK==
+    fk(aircraft_code, AIRCRAFTS_DATA, aircraft_code)
+}    
+
+    
+Table(TICKET_FLIGHTS) {
+    amount :: numeric
+    fare_conditions :: varchar
+    flight_id :: int4
+    ticket_no :: bpchar
+    ==Indices==
+    uniqueIndex(ticket_no + flight_id)
+    ==FK==
+    fk(flight_id, FLIGHTS, flight_id)
+    fk(ticket_no, TICKETS, ticket_no)
+}    
+
+    
+Table(TICKETS) {
+    book_ref :: bpchar
+    nullable(contact_data) :: jsonb
+    passenger_id :: varchar
+    passenger_name :: text
+    ticket_no :: bpchar
+    ==Indices==
+    uniqueIndex(ticket_no)
+    ==FK==
+    fk(book_ref, BOOKINGS, book_ref)
+}    
+fkArrow(BOARDING_PASSES, TICKET_FLIGHTS)
+fkArrow(BOARDING_PASSES, TICKET_FLIGHTS)
+fkArrow(FLIGHTS, AIRCRAFTS_DATA)
+fkArrow(FLIGHTS, AIRPORTS_DATA)
+fkArrow(FLIGHTS, AIRPORTS_DATA)
+fkArrow(SEATS, AIRCRAFTS_DATA)
+fkArrow(TICKET_FLIGHTS, FLIGHTS)
+fkArrow(TICKET_FLIGHTS, TICKETS)
+fkArrow(TICKETS, BOOKINGS)
+}
+
+package "Views" <<Frame>> #FFFFFF {
+    
+View(AIRCRAFTS) {
+    nullable(aircraft_code) :: bpchar
+    nullable(model) :: text
+    nullable(range) :: int4
+    
+    
+}    
+
+    
+View(AIRPORTS) {
+    nullable(airport_code) :: bpchar
+    nullable(airport_name) :: text
+    nullable(city) :: text
+    nullable(coordinates) :: point
+    nullable(timezone) :: text
+    
+    
+}    
+
+    
+View(FLIGHTS_V) {
+    nullable(actual_arrival) :: timestamptz
+    nullable(actual_arrival_local) :: timestamp
+    nullable(actual_departure) :: timestamptz
+    nullable(actual_departure_local) :: timestamp
+    nullable(actual_duration) :: interval
+    nullable(aircraft_code) :: bpchar
+    nullable(arrival_airport) :: bpchar
+    nullable(arrival_airport_name) :: text
+    nullable(arrival_city) :: text
+    nullable(departure_airport) :: bpchar
+    nullable(departure_airport_name) :: text
+    nullable(departure_city) :: text
+    nullable(flight_id) :: int4
+    nullable(flight_no) :: bpchar
+    nullable(scheduled_arrival) :: timestamptz
+    nullable(scheduled_arrival_local) :: timestamp
+    nullable(scheduled_departure) :: timestamptz
+    nullable(scheduled_departure_local) :: timestamp
+    nullable(scheduled_duration) :: interval
+    nullable(status) :: varchar
+    
+    
+}    
+
+    
+View(ROUTES) {
+    nullable(aircraft_code) :: bpchar
+    nullable(arrival_airport) :: bpchar
+    nullable(arrival_airport_name) :: text
+    nullable(arrival_city) :: text
+    nullable(days_of_week) :: _int4
+    nullable(departure_airport) :: bpchar
+    nullable(departure_airport_name) :: text
+    nullable(departure_city) :: text
+    nullable(duration) :: interval
+    nullable(flight_no) :: bpchar
+    
+    
+}    
+
+}
+
+package "Sequences" <<Frame>> #FFFFFF {
+    
+Sequence(FLIGHTS_FLIGHT_ID_SEQ) {
+    startValue :: 1
+    increment :: 1
+}    
+
+}
+
+@enduml
+
+@startuml
+    scale max 2600 width
+    
+    skinparam defaultFontName Courier
+    skinparam legendBackgroundColor Snow
+    
+    
+    hide methods
+    hide stereotypes
+
+    title demo
+
+    legend top left
+      T  Table
+      V  View
+      S  Sequence 
+      ■  Unique Index
+      ♢  Non-unique Index
+      ∅  Nullable Column
+      ➜  Foreign Key
+    endlegend
+
+package "Tables" <<Frame>> #FFFFFF {
+    
+class AIRCRAFTS_DATA << (T,Gold) >> {
+    aircraft_code :: bpchar
+    model :: jsonb
+    range :: int4
+    ==Indices==
+    -{method}<b>aircraft_code
+    
+}    
+
+    
+class AIRPORTS_DATA << (T,Gold) >> {
+    airport_code :: bpchar
+    airport_name :: jsonb
+    city :: jsonb
+    coordinates :: point
+    timezone :: text
+    ==Indices==
+    -{method}<b>airport_code
+    
+}    
+
+    
+class BOARDING_PASSES << (T,Gold) >> {
+    boarding_no :: int4
+    flight_id :: int4
+    seat_no :: varchar
+    ticket_no :: bpchar
+    ==Indices==
+    -{method}<b>flight_id + boarding_no
+    -{method}<b>flight_id + seat_no
+    -{method}<b>ticket_no + flight_id
+    ==FK==
+    flight_id➜TICKET_FLIGHTS.flight_id
+    ticket_no➜TICKET_FLIGHTS.ticket_no
+}    
+
+    
+class BOOKINGS << (T,Gold) >> {
+    book_date :: timestamptz
+    book_ref :: bpchar
+    total_amount :: numeric
+    ==Indices==
+    -{method}<b>book_ref
+    
+}    
+
+    
+class FLIGHTS << (T,Gold) >> {
+    actual_arrival ∅ :: timestamptz
+    actual_departure ∅ :: timestamptz
+    aircraft_code :: bpchar
+    arrival_airport :: bpchar
+    departure_airport :: bpchar
+    flight_id :: serial
+    flight_no :: bpchar
+    scheduled_arrival :: timestamptz
+    scheduled_departure :: timestamptz
+    status :: varchar
+    ==Indices==
+    -{method}<b>flight_no + scheduled_departure
+    -{method}<b>flight_id
+    ==FK==
+    aircraft_code➜AIRCRAFTS_DATA.aircraft_code
+    arrival_airport➜AIRPORTS_DATA.airport_code
+    departure_airport➜AIRPORTS_DATA.airport_code
+}    
+
+    
+class SEATS << (T,Gold) >> {
+    aircraft_code :: bpchar
+    fare_conditions :: varchar
+    seat_no :: varchar
+    ==Indices==
+    -{method}<b>aircraft_code + seat_no
+    ==FK==
+    aircraft_code➜AIRCRAFTS_DATA.aircraft_code
+}    
+
+    
+class TICKET_FLIGHTS << (T,Gold) >> {
+    amount :: numeric
+    fare_conditions :: varchar
+    flight_id :: int4
+    ticket_no :: bpchar
+    ==Indices==
+    -{method}<b>ticket_no + flight_id
+    ==FK==
+    flight_id➜FLIGHTS.flight_id
+    ticket_no➜TICKETS.ticket_no
+}    
+
+    
+class TICKETS << (T,Gold) >> {
+    book_ref :: bpchar
+    contact_data ∅ :: jsonb
+    passenger_id :: varchar
+    passenger_name :: text
+    ticket_no :: bpchar
+    ==Indices==
+    -{method}<b>ticket_no
+    ==FK==
+    book_ref➜BOOKINGS.book_ref
+}    
+BOARDING_PASSES - -> TICKET_FLIGHTS
+BOARDING_PASSES - -> TICKET_FLIGHTS
+FLIGHTS - -> AIRCRAFTS_DATA
+FLIGHTS - -> AIRPORTS_DATA
+FLIGHTS - -> AIRPORTS_DATA
+SEATS - -> AIRCRAFTS_DATA
+TICKET_FLIGHTS - -> FLIGHTS
+TICKET_FLIGHTS - -> TICKETS
+TICKETS - -> BOOKINGS
+}
+
+package "Views" <<Frame>> #FFFFFF {
+    
+class AIRCRAFTS << (V,Silver) >> {
+    aircraft_code ∅ :: bpchar
+    model ∅ :: text
+    range ∅ :: int4
+    
+    
+}    
+
+    
+class AIRPORTS << (V,Silver) >> {
+    airport_code ∅ :: bpchar
+    airport_name ∅ :: text
+    city ∅ :: text
+    coordinates ∅ :: point
+    timezone ∅ :: text
+    
+    
+}    
+
+    
+class FLIGHTS_V << (V,Silver) >> {
+    actual_arrival ∅ :: timestamptz
+    actual_arrival_local ∅ :: timestamp
+    actual_departure ∅ :: timestamptz
+    actual_departure_local ∅ :: timestamp
+    actual_duration ∅ :: interval
+    aircraft_code ∅ :: bpchar
+    arrival_airport ∅ :: bpchar
+    arrival_airport_name ∅ :: text
+    arrival_city ∅ :: text
+    departure_airport ∅ :: bpchar
+    departure_airport_name ∅ :: text
+    departure_city ∅ :: text
+    flight_id ∅ :: int4
+    flight_no ∅ :: bpchar
+    scheduled_arrival ∅ :: timestamptz
+    scheduled_arrival_local ∅ :: timestamp
+    scheduled_departure ∅ :: timestamptz
+    scheduled_departure_local ∅ :: timestamp
+    scheduled_duration ∅ :: interval
+    status ∅ :: varchar
+    
+    
+}    
+
+    
+class ROUTES << (V,Silver) >> {
+    aircraft_code ∅ :: bpchar
+    arrival_airport ∅ :: bpchar
+    arrival_airport_name ∅ :: text
+    arrival_city ∅ :: text
+    days_of_week ∅ :: _int4
+    departure_airport ∅ :: bpchar
+    departure_airport_name ∅ :: text
+    departure_city ∅ :: text
+    duration ∅ :: interval
+    flight_no ∅ :: bpchar
+    
+    
+}    
+
+}
+
+package "Sequences" <<Frame>> #FFFFFF {
+    
+class FLIGHTS_FLIGHT_ID_SEQ << (S,Lime) >> {
+    startValue :: 1
+    increment :: 1
+}    
+
+}
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: GB
+--></g></svg>

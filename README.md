@@ -3,7 +3,7 @@ A utility for rendering the XML output of [Schemaspy](https://github.com/schemas
 
 ## Goal
 In general, schema diagrams are low fidelity representations of the actual schema. The goal of this utility is 
-to generate a diagram that provides the user with a **general** idea of what the actual schema is. Ultimately, the fine 
+to generate a diagram that provides the user with a general idea of what the actual schema is. Ultimately, the fine 
 details are in that `.sql` file.
 
 
@@ -32,6 +32,18 @@ schemaspy.schemas=public
 schemaspy.I=<STUFF_TO_IGNORE>
 ```
 
+## Building
+Checkout the project and execute `./gradlew clean build`. The `build/libs` directory will contain the fat jar `gesrep-<VERSION>-all.jar`
+
+## Running
+`java -jar build/libs/gesrep-<VERSION>.jar <PATH_TO_SCHEMA_XML_FILE> <PATH_TO_OUTPUT_FILE>` Some sample schema XML files 
+are in `test/resources` so you can try them out. 
+
+This is the output from `test/resources/demo.bookings.xml` :
+
+![diagram](docs/assets/demo.booking.svg)
+
+Because the output is a PlantUML file, it is possible to customise the "look and feel". For example try adding  
 
 ### License
 

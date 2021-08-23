@@ -40,6 +40,10 @@ package "Tables" <<Frame>> #FFFFFF {
     ${renderData.tableData + renderData.fkData}
 }
 
+package "Views" <<Frame>> #FFFFFF {
+    ${renderData.viewData}
+}
+
 package "Sequences" <<Frame>> #FFFFFF {
     ${renderData.sequenceData}
 }
