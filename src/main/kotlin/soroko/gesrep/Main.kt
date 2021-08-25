@@ -11,5 +11,5 @@ fun main(args: Array<String>) {
 
     outFile.writeText(data)
 
-    println("DONE.")
+    println("DONE, output: ${outFile.absolutePath}")
 }
